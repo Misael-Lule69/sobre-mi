@@ -1,0 +1,184 @@
+/* Estilos generales - Versión Mejorada */
+:root {
+  --primary-color: #4361ee; /* Azul vibrante */
+  --secondary-color: #3f37c9; /* Azul oscuro */
+  --accent-color: #4cc9f0; /* Azul claro */
+  --text-dark: #2b2d42; /* Gris oscuro para texto */
+  --text-light: #8d99ae; /* Gris claro */
+  --bg-light: #f8f9fa; /* Fondo claro */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Contenedor principal - Mejorado */
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Tarjeta de producto - Diseño Premium */
+.producto {
+  border: none;
+  border-radius: 16px;
+  padding: 1.5rem;
+  background: white;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.producto:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Efecto de borde sutil al hover */
+.producto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+
+.producto:hover::before {
+  transform: scaleX(1);
+}
+
+/* Imagen del producto - Más elegante */
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.producto:hover img {
+  transform: scale(1.03);
+}
+
+/* Texto del producto - Más legible */
+.producto h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.producto p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  min-height: 40px;
+}
+
+/* Precio - Destacado */
+.producto strong {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+/* Botón - Moderno con gradiente */
+.producto button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  box-shadow: var(--shadow-sm);
+}
+
+.producto button:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Imagen destacada - Efecto de portada */
+img[alt="mochilafirst"] {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 2rem auto 3rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  max-height: 450px;
+  border: 10px solid white;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(2deg);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .productos {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  gap: 1.5rem;
+  }
+  
+  img[alt="mochilafirst"] {
+    margin: 1rem auto 2rem;
+    max-height: 300px;
+  }
+}
